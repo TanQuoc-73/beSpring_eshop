@@ -12,11 +12,11 @@ import java.util.Map;
 @Table(name = "product_variants")
 public class ProductVariant {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
 
     @Column(nullable = false)

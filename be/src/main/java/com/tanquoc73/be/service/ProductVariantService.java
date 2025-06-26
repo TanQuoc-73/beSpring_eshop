@@ -31,7 +31,7 @@ public class ProductVariantService {
 
     public ProductVariant updateVariant(String id, ProductVariantDto variantDto) {
         ProductVariant variant = getVariantById(id);
-        Product product = productRepository.findById(variantDto.getProductId())
+        Product product = productRepository.findById(String.valueOf(variantDto.getProductId()))
                 .orElseThrow(() -> new RuntimeException("Product not found"));
         variant.setProduct(product);
         variant.setSku(variantDto.getSku());

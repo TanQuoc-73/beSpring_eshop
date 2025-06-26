@@ -30,7 +30,7 @@ public class ProductVariantController {
     @PostMapping
     public ProductVariant createVariant(@RequestBody ProductVariantDto variantDto) {
         ProductVariant variant = new ProductVariant();
-        Product product = productRepository.findById(variantDto.getProductId())
+        Product product = productRepository.findById(String.valueOf(variantDto.getProductId()))
                 .orElseThrow(() -> new RuntimeException("Product not found"));
         variant.setProduct(product);
         variant.setSku(variantDto.getSku());

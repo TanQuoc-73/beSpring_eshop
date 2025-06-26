@@ -7,7 +7,7 @@ import java.util.Map;
 @Data
 public class ProductVariantDto {
     private String id;
-    private String productId;
+    private Integer productId;
     private String sku;
     private double price;
     private int stock;
