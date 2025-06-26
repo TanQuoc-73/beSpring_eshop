@@ -33,7 +33,7 @@ public class ProductController {
         product.setName(productDto.getName());
         product.setDescription(productDto.getDescription());
         product.setPrice(productDto.getPrice());
-        Brand brand = brandRepository.findById(productDto.getBrandId())
+        Brand brand = brandRepository.findById(Integer.valueOf(productDto.getBrandId()))
                 .orElseThrow(() -> new RuntimeException("Brand not found"));
         product.setBrand(brand);
         return productService.createProduct(product);
